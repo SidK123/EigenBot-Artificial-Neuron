@@ -1,17 +1,18 @@
 `default_nettype none
 
 module Izhikevich_module{
-  reg signed [17:0] a, b, c, d; //different parameters of the Izhikevich model
-  reg signed [17:0] vcurr, ccurr; //current v and c parameters
-  reg signed [17:0] p; //peak voltage for the neuron spike
-  reg signed [17:0] c14; //constant for the implementation of the Izhikevich neuron model
-  reg signed [17:0] I; //input current from a synapse or external input
-  wire signed [17:0] vnew, cnew; //new c or v parameter
-  wire signed [17:0] vsquare, vtimesb, du; //for multiplication of two different signed values
+  input signed [17:0] a, b, c, d; //different parameters of the Izhikevich model
+  input logic CLOCK_50;
+  input signed [17:0] p; //peak voltage for the neuron spike
+  input signed [17:0] I; //input current from a synapse or external input
 }
   logic [11:0] count; //clock divider to get only 4096 clock cycles out of the clock before restarting\
-  reg signed [17:0] vnew, unew, bv;
-  
+  signed [17:0] vnew, unew, bv;
+  signed [17:0] vcurr, ccurr; //current v and c parameters
+  signed [17:0] vnew, cnew; //new c or v parameter
+  signed [17:0] vsquare, vtimesb, du; //for multiplication of two different signed values
+  signed [17:0] c14; //constant for the implementation of the Izhikevich neuron model
+
   always @(posedge CLOCK_50)
   begin
     count <= count+1; //one more clock cycle
