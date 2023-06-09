@@ -29,4 +29,4 @@ module Axon_Delay{
       spike_out <= 1'b0; //If the delay hasn't passed, then our output spike has not spiked yet, so it is equal to 0.
     }
   }
-endmodule Axon_Delay
+endmodule: Axon_Delay

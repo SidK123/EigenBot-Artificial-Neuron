@@ -5,6 +5,8 @@ module Izhikevich_module{
   input logic CLOCK_50;
   input signed [17:0] p; //peak voltage for the neuron spike
   input signed [17:0] I; //input current from a synapse or external input
+  output signed [17:0] vcurr, ccurr;
+  output logic spike; // boolean for whether or not this neuron spiked
 }
   logic [11:0] count; //clock divider to get only 4096 clock cycles out of the clock before restarting\
   signed [17:0] vnew, unew, bv;
