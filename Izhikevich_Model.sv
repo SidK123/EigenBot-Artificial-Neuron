@@ -87,7 +87,6 @@ module signed_mult(
 
 endmodule: signed_mult
 
-
 module top_two();
   logic signed [31:0] vcurr, ucurr, vnew, unew;
   logic clock, reset, spike;
