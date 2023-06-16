@@ -6,7 +6,7 @@ module Synapse(
   input logic s1, s2, s3,
   input signed logic [17:0] w1, w2, w3,
   output signed logic [17:0] out
-)
+);
   logic [17:0] v;
   always @(posedge clock)
     if(reset){ //If we reset, then our current goes back to 0. 

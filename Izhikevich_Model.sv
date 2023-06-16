@@ -1351,25 +1351,3 @@ module top_two();
   end
 
 endmodule: top_two
-
-/*module top();
-  logic signed [31:0] vnew, unew;
-  logic clock, reset, spike;
-  logic signed [31:0] a, b, int_point, float_point;
-  logic signed [63:0] out;
-
-  signed_mult test_multiply(.a(a), .b(b), .out(out), .int_point(int_point), .float_point(float_point));
-
-  initial begin
-    $monitor($time, "a:%b, b:%b, out:%b, int_point:%b, float_point: %b",
-                    a, b, out, int_point, float_point);
-  end
-
-  initial begin
-    #2 a = 32'sh8000_3333;
-    #2 b = 32'sh8002_1000;
-    #2 a = 32'sh8000_a666;
-    #2 b = 32'sh8000_a666;
-  end
-
-endmodule: top*/

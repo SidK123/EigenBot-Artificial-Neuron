@@ -8,7 +8,7 @@ module Axon_Delay(
   input logic spike_in, clock,
   input logic [5:0] delay,
   output logic spike_out
-)
+);
   logic start;
   logic [5:0] count;
   always @(posedge clock)

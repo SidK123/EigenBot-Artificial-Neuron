@@ -9,9 +9,9 @@ module TopModule(
   input signed logic [17:0] peak_voltage,
   input signed logic [17:0] I2, I3,
   input logic clock,
-  input logic reset;
-  output signed logic out;
-)
+  input logic reset,
+  output signed logic out,
+);
   logic [17:0] I1;
   signed logic [17:0] vcurr1, vcurr2, vcurr3;
   signed logic [17:0] ccurr1, ccurr2, ccurr3;
