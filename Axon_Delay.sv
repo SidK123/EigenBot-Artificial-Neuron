@@ -4,29 +4,26 @@
 
 `default_nettype none
 
-module Axon_Delay{
-  input logic spike_in, clock;
-  input logic [5:0] delay;
-  output logic spike_out;
-}
+module Axon_Delay(
+  input logic spike_in, clock,
+  input logic [5:0] delay,
+  output logic spike_out
+)
   logic start;
   logic [5:0] count;
-  always @(posedge clock){
-    if(spike_in == 1'b1){  //When a spike is generated, we start the counter.
+  always @(posedge clock)
+    begin
+    if(spike_in == 1'b1)  //When a spike is generated, we start the counter.
       start <= 1'b1;
-    }
-    if(start == 1'b1){ //If we have started the counter, then we keep adding to the counter until we've hit the delay value.
+    if(start == 1'b1) //If we have started the counter, then we keep adding to the counter until we've hit the delay value.
       count <= count + 1;
-    }
-    if(count == delay){ //If we've hit the delay value, we restart our counter, and we set our output spike equal to the 1, as the delay has passed.
+    if(count == delay) //If we've hit the delay value, we restart our counter, and we set our output spike equal to the 1, as the delay has passed.
     begin
       start <= 1'b0;
       spike_out <= 1'b1;
       count <= 1'b0;
     end
-    }
-    else{
+    else
       spike_out <= 1'b0; //If the delay hasn't passed, then our output spike has not spiked yet, so it is equal to 0.
-    }
-  }
+    end
 endmodule: Axon_Delay

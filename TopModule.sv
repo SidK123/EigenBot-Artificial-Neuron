@@ -1,17 +1,17 @@
 `default_nettype none
 
-module TopModule{
-  input logic [17:0] a1, a2, a3,
-  input logic [17:0] b1, b2, b3,
-  input logic [17:0] c1, c2, c3,
-  input logic [17:0] d1, d2, d3,
-  input logic [5:0] axondelay1, axondelay2;
-  input logic [17:0] peak_voltage,
-  input logic [17:0] I2, I3,
+module TopModule(
+  input signed logic [17:0] a1, a2, a3,
+  input signed logic [17:0] b1, b2, b3,
+  input signed logic [17:0] c1, c2, c3,
+  input signed logic [17:0] d1, d2, d3,
+  input signed logic [5:0] axondelay1, axondelay2;
+  input signed logic [17:0] peak_voltage,
+  input signed logic [17:0] I2, I3,
   input logic clock,
   input logic reset;
-  output logic out;
-}
+  output signed logic out;
+)
   logic [17:0] I1;
   signed logic [17:0] vcurr1, vcurr2, vcurr3;
   signed logic [17:0] ccurr1, ccurr2, ccurr3;
