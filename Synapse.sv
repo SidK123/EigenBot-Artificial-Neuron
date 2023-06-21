@@ -19,3 +19,5 @@ module Synapse(
   vnew = v + ((-1 * v) >>> 4) + (s1 ? w1 : 17'b0) + (s2 ? w2 : 17'b0) + (s3 ? w3 : 17'b0); 
   assign out = v; //Our output current is equaL to v, which is the variable we use for current.
 endmodule: Synapse
+   EigenBot
+   

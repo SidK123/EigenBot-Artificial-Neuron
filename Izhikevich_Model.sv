@@ -29,7 +29,7 @@ module Izhikevich_module(
         ucurr <= 32'shffef_0000; //nominal u value, -20
         a <= 32'sh0000_052d; //time scale of recovery variable u, .02
         b <= 32'sh0000_3333; //sensitivity of subthreshold fluctuations of v
-        c <= 32'shffc9_0000; //after-spike reset of v, -65
+        c <= 32'shffbf_0000; //after-spike reset of v, -65
         d <= 32'sh0004_0000; //after-spike reset of u, 2
         p <= 32'sh001E_0000; //peak potential of the spike, 30
         c14 <= 32'sh0001_6666; //1.4 constant
@@ -86,6 +86,7 @@ module signed_mult(
   //assign float_point = out[31:0];
 
 endmodule: signed_mult
+
 
 module top_two();
   logic signed [31:0] vcurr, ucurr, vnew, unew;
@@ -1350,3 +1351,25 @@ module top_two();
   end
 
 endmodule: top_two
+
+/*module top();
+  logic signed [31:0] vnew, unew;
+  logic clock, reset, spike;
+  logic signed [31:0] a, b, int_point, float_point;
+  logic signed [63:0] out;
+
+  signed_mult test_multiply(.a(a), .b(b), .out(out), .int_point(int_point), .float_point(float_point));
+
+  initial begin
+    $monitor($time, "a:%b, b:%b, out:%b, int_point:%b, float_point: %b",
+                    a, b, out, int_point, float_point);
+  end
+
+  initial begin
+    #2 a = 32'sh8000_3333;
+    #2 b = 32'sh8002_1000;
+    #2 a = 32'sh8000_a666;
+    #2 b = 32'sh8000_a666;
+  end
+
+endmodule: top*/
